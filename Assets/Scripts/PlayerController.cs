@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
-
+    public AudioSource coinSound;
     void OnTriggerEnter(Collider other)
     {
         // Check if the object the player collided with has the "PickUp" tag.
@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
             // Increment the count of "PickUp" objects collected.
             count = count + 1;
+            coinSound.Play();
 
             // Update the count display.
             SetCountText();
